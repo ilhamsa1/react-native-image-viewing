@@ -47,15 +47,11 @@ const Modal = ({
   }
 
   const statusBarHidden = presentationStyle === "overFullScreen";
-  const statusBarStateStyle =
-    presentationStyle === "overFullScreen"
-      ? styles.overFullscreen
-      : styles.defaultStyle;
 
   return (
     <>
       {statusBarHidden && <StatusBar hidden />}
-      <View style={[styles.root, statusBarStateStyle]}>{children}</View>
+      <View style={styles.root}>{children}</View>
     </>
   );
 };
@@ -69,9 +65,6 @@ const styles = StyleSheet.create({
   overFullscreen: {
     top: 0
   },
-  defaultStyle: {
-    top: StatusBar.currentHeight
-  }
 });
 
 export default Modal;
